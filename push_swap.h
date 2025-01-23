@@ -1,12 +1,16 @@
 #ifndef PUSH_SWAP_H_
 #define PUSH_SWAP_H_
 
+# define MAX_INT 2147483647
+# define MIN_INT -2147483648
 
 #include <stdlib.h>
 #include <unistd.h>
 #include "../libft/libft.h"
 #include "../ft_printf/ft_printf.h"
 #include "../libft/libft.h"
+// TODO delete header after finishing project
+#include <stdio.h>
 
 typedef struct Node
 {
@@ -49,4 +53,9 @@ void rr(Stacks roots);
 void rra(Stacks roots);
 void rrb(Stacks roots);
 void rrl(Stacks roots);
+
+//user input
+char **input_is_in_quotes(int *argc, char **argv);
+int input_is_wrong(char **argv);
+
 #endif // PUSH_SWAP_H_

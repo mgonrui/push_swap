@@ -34,27 +34,35 @@ int main(int argc, char **argv)
     Stacks roots;
     Node *root_a;
     Node *root_b;
-    roots.a =  &root_a;
-    roots.b =  &root_b;
-    /* Node *root_b; */
-    /* Node *current_a; */
-    /* Node *current_b; */
     int i;
 
+    roots.a =  &root_a;
+    roots.b =  &root_b;
+
     i = 1;
+    if (ft_strchr(argv[i], ' '))
+    {
+        argv = input_is_in_quotes(&argc, argv);
+        i = 0;
+    }
+    if (input_is_wrong(&argv[i]))
+    {
+        ft_printf("INPUT IS NOT VALID");
+        return 0;
+    }
     while(i < argc)
     {
         add_end_node(&root_a, ft_atoi(argv[i]));
         i++;
     }
     print_stack(root_a, root_b);
-    sa(roots);
-    pb(roots);
-    pb(roots);
-    pb(roots);
-    ss(roots);
-    rr(roots);
-    rrl(roots);
+    /* sa(roots); */
+    /* pb(roots); */
+    /* pb(roots); */
+    /* pb(roots); */
+    /* ss(roots); */
+    /* rr(roots); */
+    /* rrl(roots); */
 
 
     ft_printf("\nstack after action: \n\n");
