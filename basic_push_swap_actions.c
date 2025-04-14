@@ -13,7 +13,7 @@ void swap(Node **root)
     *root = second;
 }
 
-void rotate(Node **root)
+void rotate_reverse(Node **root)
 {
    Node *current;
    Node *previous;
@@ -30,7 +30,7 @@ void rotate(Node **root)
    previous->next = NULL;
 }
 
-void rotate_reverse(Node **root)
+void rotate(Node **root)
 {
    Node *current;
    Node *new_root;

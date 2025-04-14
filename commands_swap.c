@@ -1,19 +1,23 @@
 #include "push_swap.h"
 
-void sa(Stacks roots)
+void sa(Node **root_a, Node **root_b)
 {
-   swap(roots.a);
+   swap(root_a);
+   ft_printf("sa\n");
    return ;
 }
 
-void sb(Stacks roots)
+void sb(Node **root_a, Node **root_b)
 {
-   swap(roots.b);
+   swap(root_b);
+   ft_printf("sa\n");
    return ;
 }
-void ss(Stacks roots)
+
+void ss(Node **root_a, Node **root_b)
 {
-   sa(roots);
-   sb(roots);
+   sa(root_a, root_b);
+   sb(root_a, root_b);
+   ft_printf("ss\n");
    return ;
 }

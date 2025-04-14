@@ -10,6 +10,7 @@ char **input_is_in_quotes(int *argc, char **argv)
         exit (1);
     }
     char **ret_value = ft_split(argv[1], ' ');
+    *argc = 0;
     while (ret_value[*argc] != NULL)
         (*argc)++;
     return ret_value;

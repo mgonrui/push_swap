@@ -1,20 +1,24 @@
 #include "push_swap.h"
 
-void ra(Stacks roots)
+void ra(Node **stack_a, Node **stack_b)
 {
-    rotate(roots.a);
+    rotate(stack_a);
+    ft_printf("ra\n");
     return ;
 }
 
-void rb(Stacks roots)
+void rb(Node **stack_a, Node **stack_b)
 {
 
-    rotate(roots.b);
+    rotate(stack_b);
+    ft_printf("rb\n");
     return ;
 }
 
-void rr(Stacks roots)
+void rr(Node **stack_a, Node **stack_b)
 {
-    ra(roots);
-    rb(roots);
+    ra(stack_a, stack_b);
+    rb(stack_a, stack_b);
+    ft_printf("rr\n");
+    return ;
 }

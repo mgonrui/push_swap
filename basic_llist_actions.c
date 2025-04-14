@@ -52,3 +52,34 @@ void add_end_node(Node **root, int value)
     current_node->next = new_node;
 }
 
+int count_nodes(Node *root)
+{
+    Node *current_node;
+    int i;
+    i = 0;
+    current_node = root;
+    while(current_node != NULL)
+    {
+        current_node = current_node->next;
+        i++;
+    }
+    return i;
+}
+
+void index_nodes(Node *root_a, Node *root_b)
+{
+    int i;
+    i = 0;
+    while(root_a != NULL)
+    {
+        root_a->index = i++;
+        root_a = root_a->next;
+    }
+    i = 0;
+    while(root_b != NULL)
+    {
+        root_b->index = i++;
+        root_b = root_b->next;
+    }
+    return ;
+}
