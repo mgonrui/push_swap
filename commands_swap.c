@@ -1,23 +1,27 @@
 #include "push_swap.h"
 
-void sa(Node **root_a, Node **root_b)
+void sa(Node **stack_a, Node **stack_b, bool print)
 {
-   swap(root_a);
-   ft_printf("sa\n");
+   swap(stack_a);
+   index_nodes(*stack_a, *stack_b);
+   if (print == true)
+      ft_printf("sa\n");
    return ;
 }
 
-void sb(Node **root_a, Node **root_b)
+void sb(Node **stack_a, Node **stack_b, bool print)
 {
-   swap(root_b);
-   ft_printf("sa\n");
+   swap(stack_b);
+   index_nodes(*stack_a, *stack_b);
+   if (print == true)
+      ft_printf("sb\n");
    return ;
 }
 
-void ss(Node **root_a, Node **root_b)
+void ss(Node **stack_a, Node **stack_b)
 {
-   sa(root_a, root_b);
-   sb(root_a, root_b);
+   sa(stack_a, stack_b, false);
+   sb(stack_a, stack_b, false);
    ft_printf("ss\n");
    return ;
 }

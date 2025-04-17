@@ -16,7 +16,7 @@ char **input_is_in_quotes(int *argc, char **argv)
     return ret_value;
 }
 
-int input_is_outside_int_values(char *str)
+bool input_is_outside_int_values(char *str)
 {
    int sign;
    int i;
@@ -39,11 +39,11 @@ int input_is_outside_int_values(char *str)
    }
    value *= sign;
    if (value > MAX_INT || value < MIN_INT)
-       return 1;
-   return 0;
+       return true;
+   return false;
 }
 
-int duplicate_foud(char **argv)
+bool duplicate_foud(char **argv)
 {
     int i;
     int j;
@@ -55,49 +55,44 @@ int duplicate_foud(char **argv)
         while (argv[j] != NULL)
         {
             if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
-                return 1;
+                return true;
             j++;
         }
         i++;
     }
-    return 0;
+    return false;
 }
-int sign_ok(char *str)
+bool valid_number(char *str)
 {
     int i;
-    int j;
-    int sign_count;
-    sign_count = 0;
     i = 0;
     while (str[i] != '\0')
     {
-        if (!ft_isdigit(str[i]))
+        if (!ft_isdigit(str[0]))
         {
-            if (str[i] == '-' || str[i] == '+')
+            if (str[0] == '-' || str[0] == '+')
                 i++;
             else
-                return 0;
+                return false;
         }
         if (!ft_isdigit(str[i]))
-            return 0;
+            return false;
         i++;
     }
-    return 1;
+    return true;
 }
-int input_is_wrong(char **argv)
+
+bool input_is_wrong(char **argv)
 {
     int i;
-    int j;
 
     i = 0;
-    j = 0;
     while (argv[i] != NULL)
     {
-       j = 0;
        if (input_is_outside_int_values(argv[i]))
-           return 1;
-       if (!sign_ok(argv[i]))
-           return 1;
+           return true;
+       if (!valid_number(argv[i]))
+           return true;
        i++;
     }
     if (duplicate_foud(argv))

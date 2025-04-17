@@ -50,6 +50,17 @@ void print_stack(Node *root_a, Node *root_b)
 
 }
 
+bool stack_in_order(Node *stack)
+{
+    while(stack->next != NULL)
+    {
+        if (stack->value > stack->next->value)
+            return false;
+        stack = stack->next;
+    }
+    return true;
+}
+
 int main(int argc, char **argv)
 {
     if (argc <= 1)
@@ -69,9 +80,9 @@ int main(int argc, char **argv)
         argv = input_is_in_quotes(&argc, argv);
         i = 0;
     }
-    if (input_is_wrong(&argv[i]))
+    if (input_is_wrong(&argv[i]) || argv[1][0] == '\0')
     {
-        ft_printf("INPUT IS NOT VALID");
+        ft_putstr_fd("Error", 2);
         return 0;
     }
     while(i < argc)
@@ -79,9 +90,9 @@ int main(int argc, char **argv)
         add_end_node(&root_a, ft_atoi(argv[i]));
         i++;
     }
-    print_stack(root_a, root_b);
+    if (stack_in_order(root_a))
+        return 0;
     sort_all(&root_a, &root_b);
-    print_stack(root_a, root_b);
     return 0;
 }
 
