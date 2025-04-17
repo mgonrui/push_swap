@@ -22,9 +22,6 @@ typedef struct Node
     struct Node *prev;
 } Node;
 
-// debug
-void print_stack(Node *root_a, Node *root_b);
-
 // basic llist actions
 void remove_beggining_node(Node **root);
 void add_beginning_node(Node **root, int value);
@@ -57,18 +54,19 @@ void rrr(Node **stack_a, Node **stack_b);
 //user input
 char **input_is_in_quotes(int *argc, char **argv);
 bool input_is_wrong(char **argv);
-
-
-//algorythm
+// move_nodes
 void sort_three(Node **stack_a, Node **stack_b);
-Node *find_largest(Node *list);
 void sort_all(Node **stack_a, Node **stack_b);
+void move_nodes(Node **stack_a, Node **stack_b);
+//algorythm
 void find_target_node(Node *stack_a, Node *stack_b);
 void calculate_cost(Node *stack_a, Node *stack_b);
-void half_top_or_bot(Node *stack_a, Node *stack_b);
-void flag_cheapest(Node *stack_b);
-bool can_move_both_in_same_action(Node *current);
-void move_nodes(Node **stack_a, Node **stack_b);
 void restart_stacks(Node *stack_a, Node *stack_b);
+// stack utils
+bool on_same_half_stack(Node *tomove);
+Node *find_largest(Node *list);
+Node *find_smallest(Node *list);
+Node *flag_cheapest(Node *stack_b);
+
 
 #endif // PUSH_SWAP_H_

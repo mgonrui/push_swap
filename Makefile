@@ -8,7 +8,9 @@ CFILES =  	main.c \
 			commands_swap.c \
 			commands_rotate.c \
 			commands_reverse_rotate.c \
-			algorythm.c
+			stack_utils.c \
+			move_stacks.c \
+			calculate_costs.c
 OFILES = $(CFILES:.c=.o)
 
 %.o : %.c push_swap.h
