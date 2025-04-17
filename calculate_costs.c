@@ -45,3 +45,34 @@ void calculate_cost(Node *stack_a, Node *stack_b)
 	return ;
 }
 
+void index_nodes(Node *root_a, Node *root_b)
+{
+	int	i;
+	int	centerline;
+
+	i = 0;
+	centerline = count_nodes(root_a) / 2;
+	while (root_a)
+	{
+		root_a->index = i;
+		if (i <= centerline)
+			root_a->on_top_half = true;
+		else
+			root_a->on_top_half = false;
+		root_a = root_a->next;
+		++i;
+	}
+	i = 0;
+	centerline = count_nodes(root_b) / 2;
+	while (root_b)
+	{
+		root_b->index = i;
+		if (i <= centerline)
+			root_b->on_top_half = true;
+		else
+			root_b->on_top_half = false;
+		root_b = root_b->next;
+		++i;
+	}
+
+}

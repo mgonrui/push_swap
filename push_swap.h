@@ -27,7 +27,7 @@ void remove_beggining_node(Node **root);
 void add_beginning_node(Node **root, int value);
 void add_end_node(Node **root, int value);
 int count_nodes(Node *root);
-void index_nodes(Node *root_a, Node *root_b);
+void free_llist(Node *root);
 
 // basic push swap actions
 void swap(Node **root);
@@ -62,6 +62,7 @@ void move_nodes(Node **stack_a, Node **stack_b);
 void find_target_node(Node *stack_a, Node *stack_b);
 void calculate_cost(Node *stack_a, Node *stack_b);
 void restart_stacks(Node *stack_a, Node *stack_b);
+void index_nodes(Node *root_a, Node *root_b);
 // stack utils
 bool on_same_half_stack(Node *tomove);
 Node *find_largest(Node *list);

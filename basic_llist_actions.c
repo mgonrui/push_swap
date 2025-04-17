@@ -52,7 +52,6 @@ void add_end_node(Node **root, int value)
     current_node->next = new_node;
 }
 
-// checked
 int count_nodes(Node *root)
 {
     Node *current_node;
@@ -67,53 +66,15 @@ int count_nodes(Node *root)
     return i;
 }
 
-/* void index_nodes(Node *root_a, Node *root_b) */
-/* { */
-/*     int i; */
-/*     i = 0; */
-/*     while(root_a != NULL) */
-/*     { */
-/*         root_a->index = i++; */
-/*         root_a = root_a->next; */
-/*     } */
-/*     i = 0; */
-/*     while(root_b != NULL) */
-/*     { */
-/*         root_b->index = i++; */
-/*         root_b = root_b->next; */
-/*     } */
-/*     return ; */
-/* } */
-
-// checked
-void index_nodes(Node *root_a, Node *root_b)
+void free_llist(Node *root)
 {
-	int	i;
-	int	centerline;
-
-	i = 0;
-	centerline = count_nodes(root_a) / 2;
-	while (root_a)
+	Node *current;
+	Node *prev;
+	current = root;
+	while(current != NULL)
 	{
-		root_a->index = i;
-		if (i <= centerline)
-			root_a->on_top_half = true;
-		else
-			root_a->on_top_half = false;
-		root_a = root_a->next;
-		++i;
+		prev = current;
+		current = current->next;
+		free(prev);
 	}
-	i = 0;
-	centerline = count_nodes(root_b) / 2;
-	while (root_b)
-	{
-		root_b->index = i;
-		if (i <= centerline)
-			root_b->on_top_half = true;
-		else
-			root_b->on_top_half = false;
-		root_b = root_b->next;
-		++i;
-	}
-
 }
