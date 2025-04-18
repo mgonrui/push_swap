@@ -1,5 +1,4 @@
 #include "push_swap.h"
-#include <stdio.h>
 
 char **input_is_in_quotes(int *argc, char **argv)
 {
@@ -66,15 +65,12 @@ bool valid_number(char *str)
 {
     int i;
     i = 0;
+    if (str[0] == '-' || str[0] == '+')
+        i++;
+    if ((str[0] == '-' || str[0] == '+') && str[1] == '\0')
+        return false;
     while (str[i] != '\0')
     {
-        if (!ft_isdigit(str[0]))
-        {
-            if (str[0] == '-' || str[0] == '+')
-                i++;
-            else
-                return false;
-        }
         if (!ft_isdigit(str[i]))
             return false;
         i++;
@@ -96,6 +92,6 @@ bool input_is_wrong(char **argv)
        i++;
     }
     if (duplicate_foud(argv))
-        return 1;
-    return 0;
+        return true;
+    return false;
 }
