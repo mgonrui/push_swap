@@ -69,9 +69,9 @@ bool valid_number(char *str)
     {
         if (str[1] == '\0')
             return false;
+        else
+            i++;
     }
-    else
-        i++;
     while (str[i] != '\0')
     {
         if (!ft_isdigit(str[i]))
