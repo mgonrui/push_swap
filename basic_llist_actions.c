@@ -29,11 +29,7 @@ void add_end_node(Node **root, int value)
     index = 1;
     if (*root == NULL)
     {
-        (*root) = malloc (sizeof(Node));
-        (*root)->value = value;
-        (*root)->prev = NULL;
-        (*root)->index = 0;
-        (*root)->next = NULL;
+        init_root(root, value);
         return ;
     }
     new_node = malloc(sizeof (Node));

@@ -28,6 +28,7 @@ void add_beginning_node(Node **root, int value);
 void add_end_node(Node **root, int value);
 int count_nodes(Node *root);
 void free_llist(Node *root);
+void init_root(Node **root, int value);
 
 // basic push swap actions
 void swap(Node **root);

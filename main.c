@@ -30,6 +30,16 @@ void clean(Node *root_a, Node *root_b, char **argv, bool argv_modified)
     free_llist(root_b);
 }
 
+void init_root(Node **root, int value)
+{
+    (*root) = malloc (sizeof(Node));
+    (*root)->value = value;
+    (*root)->prev = NULL;
+    (*root)->index = 0;
+    (*root)->next = NULL;
+    return ;
+}
+
 int main(int argc, char **argv)
 {
     Node *root_a;
