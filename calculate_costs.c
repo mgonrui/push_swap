@@ -1,16 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   calculate_costs.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mariogo2 <mariogo2@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/28 09:56:09 by mariogo2          #+#    #+#             */
+/*   Updated: 2025/04/28 09:56:10 by mariogo2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void find_target_node(Node *stack_a, Node *stack_b)
+void	find_target_node(t_node *stack_a, t_node *stack_b)
 {
-	Node *current;
-	Node *target_node;
-	int best_target;
+	t_node	*current;
+	t_node	*target_node;
+	int		best_target;
 
-	while(stack_b != NULL)
+	while (stack_b != NULL)
 	{
 		best_target = MAX_INT;
 		current = stack_a;
-		while(current != NULL)
+		while (current != NULL)
 		{
 			if (current->value > stack_b->value && current->value < best_target)
 			{
@@ -27,11 +39,12 @@ void find_target_node(Node *stack_a, Node *stack_b)
 	}
 }
 
-void calculate_cost(Node *stack_a, Node *stack_b)
+void	calculate_cost(t_node *stack_a, t_node *stack_b)
 {
-	Node *current;
+	t_node	*current;
+
 	current = stack_b;
-	while(current != NULL)
+	while (current != NULL)
 	{
 		current->cost = current->index;
 		if (current->on_top_half == false)
@@ -45,7 +58,7 @@ void calculate_cost(Node *stack_a, Node *stack_b)
 	return ;
 }
 
-void index_nodes(Node *root_a, Node *root_b)
+void	index_nodes(t_node *root_a, t_node *root_b)
 {
 	int	i;
 	int	centerline;

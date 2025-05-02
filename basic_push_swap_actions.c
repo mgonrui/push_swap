@@ -1,53 +1,64 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   basic_push_swap_actions.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mariogo2 <mariogo2@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/28 09:56:13 by mariogo2          #+#    #+#             */
+/*   Updated: 2025/04/28 09:56:20 by mariogo2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void swap(Node **root)
+void	swap(t_node **root)
 {
-    Node *first;
-    Node *second;
+	t_node	*first;
+	t_node	*second;
 
-    first = *root;
-    second = (*root)->next;
-
-    first->next = second->next;
-    second->next = first;
-    *root = second;
+	first = *root;
+	second = (*root)->next;
+	first->next = second->next;
+	second->next = first;
+	*root = second;
 }
 
-void rotate_reverse(Node **root)
+void	rotate_reverse(t_node **root)
 {
-   Node *current;
-   Node *previous;
+	t_node	*current;
+	t_node	*previous;
 
-   current = *root;
-   previous = NULL;
-   while (current->next != NULL)
-   {
-       previous = current;
-       current = current->next;
-   }
-   current->next = *root;
-   *root = current;
-   previous->next = NULL;
+	current = *root;
+	previous = NULL;
+	while (current->next != NULL)
+	{
+		previous = current;
+		current = current->next;
+	}
+	current->next = *root;
+	*root = current;
+	previous->next = NULL;
 }
 
-void rotate(Node **root)
+void	rotate(t_node **root)
 {
-   Node *current;
-   Node *new_root;
+	t_node	*current;
+	t_node	*new_root;
 
-   new_root = (*root)->next;
-   current = *root;
-   while (current->next != NULL)
-   {
-       current = current->next;
-   }
-   current->next = *root;
-   (*root)->next = NULL;
-   *root = new_root;
+	new_root = (*root)->next;
+	current = *root;
+	while (current->next != NULL)
+	{
+		current = current->next;
+	}
+	current->next = *root;
+	(*root)->next = NULL;
+	*root = new_root;
 }
 
-void push(Node **root_src, Node **root_dst)
+void	push(t_node **root_src, t_node **root_dst)
 {
-    add_beginning_node(root_dst, (*root_src)->value);
-    remove_beggining_node(root_src);
+	add_beginning_node(root_dst, (*root_src)->value);
+	remove_beggining_node(root_src);
 }

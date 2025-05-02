@@ -14,18 +14,22 @@ CFILES =  	main.c \
 OFILES = $(CFILES:.c=.o)
 
 %.o : %.c push_swap.h
-	$(CC) -Wall -Wextra -Ift_printf -Ilibft -c $< -o $@
+	$(CC) -Wall -Werror -Wextra  -Ilibft -c $< -o $@
 
-all: $(NAME)
+all: libft $(NAME)
 
 $(NAME): $(OFILES)
-	$(CC) -Wall -Wextra $(OFILES) -Lft_printf -lft_printf -Llibft -lft -o $(NAME)
+	$(CC) -Wall -Werror -Wextra $(OFILES) -Llibft -lft -o $(NAME)
 
+libft:
+	@ make -C libft/
 clean:
 	@ rm -f $(OFILES)
+	@ make clean -C libft/
 
 fclean: clean
 	@ rm -f $(NAME)
+	@ make fclean -C libft/
 
 re: fclean all
 
