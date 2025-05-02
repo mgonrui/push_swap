@@ -21,6 +21,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define malloc(x) 0
 typedef struct s_node
 {
 	int				value;
