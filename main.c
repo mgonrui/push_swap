@@ -36,22 +36,24 @@ static bool	stack_in_order(t_node *stack)
 	return (true);
 }
 
-void	clean(t_node **roots, char **argv, bool argv_modified,
-		bool er)
+void	clean(t_node **roots, char **argv, bool argv_modified, bool er)
 {
 	if (argv_modified == true)
 		free_double_ptr((void **)argv);
 	free_llist(roots[0]);
 	free_llist(roots[1]);
 	if (er == true)
-		ft_putstr_fd("Error\n", 2), exit(1);
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(1);
+	}
 }
 
 void	init_root(t_node **root, int value)
 {
 	(*root) = malloc(sizeof(t_node));
 	if (*root == NULL)
-		exit (1);
+		exit(1);
 	(*root)->value = value;
 	(*root)->prev = NULL;
 	(*root)->index = 0;
@@ -70,7 +72,7 @@ int	main(int argc, char **argv)
 	roots[1] = NULL;
 	i = 1;
 	if (argc < 2)
-		return 0;
+		return (0);
 	if (ft_strchr(argv[i], ' '))
 	{
 		argv = input_is_in_quotes(&argc, argv);

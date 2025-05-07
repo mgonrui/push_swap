@@ -17,7 +17,10 @@ char	**input_is_in_quotes(int *argc, char **argv)
 	char	**ret_value;
 
 	if (*argc > 2)
-		ft_putstr_fd("Error\n", 2), exit(1);
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(1);
+	}
 	ret_value = ft_split(argv[1], ' ');
 	if (ret_value == NULL)
 		exit(1);

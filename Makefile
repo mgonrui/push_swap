@@ -1,5 +1,3 @@
-NAME = push_swap
-CC = gcc
 CFILES =  	main.c \
 			basic_llist_actions.c \
 			basic_push_swap_actions.c \
@@ -11,26 +9,34 @@ CFILES =  	main.c \
 			stack_utils.c \
 			move_stacks.c \
 			calculate_costs.c
+
+
 OFILES = $(CFILES:.c=.o)
 
-%.o : %.c push_swap.h
-	$(CC) -Wall -Werror -Wextra  -Ilibft -c $< -o $@
+CC = cc
+NAME = push_swap
+CFLAGS = -Wall -Wextra -Werror
 
-all: libft $(NAME)
+%.o : %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+all: libft $(NAME) push_swap.h
 
 $(NAME): $(OFILES)
-	$(CC) -Wall -Werror -Wextra $(OFILES) -Llibft -lft -o $(NAME)
+	@ $(CC) $(CFLAGS) $(OFILES) libft/libft.a -o $(NAME)
+
 
 libft:
 	@ make -C libft/
+
 clean:
 	@ rm -f $(OFILES)
-	@ make clean -C libft/
+	@ make -C libft/ clean
 
 fclean: clean
 	@ rm -f $(NAME)
-	@ make fclean -C libft/
+	@ make -C libft/ fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re libft
